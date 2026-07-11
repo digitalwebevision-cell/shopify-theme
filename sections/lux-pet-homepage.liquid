@@ -1,0 +1,736 @@
+{%- style -%}
+  .lph-{{ section.id }} {
+    --lph-sage: #4A7C59;
+    --lph-sage-dark: #3A6147;
+    --lph-sage-light: #EAF1EC;
+    --lph-white: #FFFFFF;
+    --lph-gray: #F7F7F5;
+    --lph-ink: #1A1A1A;
+    --lph-ink-soft: #6B6B6B;
+    --lph-blue-dark: #1B2A3B;
+    --lph-blue-darker: #0F1922;
+    --lph-radius: 8px;
+    --lph-radius-lg: 16px;
+    --lph-font-heading: var(--font-heading-family, 'Playfair Display', Georgia, serif);
+    --lph-font-body: var(--font-body-family, 'Inter', -apple-system, sans-serif);
+    font-family: var(--lph-font-body);
+    background-color: var(--lph-white);
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px;
+  }
+
+  .lph-{{ section.id }} .lph__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .lph-{{ section.id }} h2,
+  .lph-{{ section.id }} h3 {
+    font-family: var(--lph-font-heading);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--lph-ink);
+    margin: 0;
+  }
+
+  /* --- TRUST BAR --- */
+  .lph-{{ section.id }} .lph__trust-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    background-color: var(--lph-gray);
+    border-radius: var(--lph-radius-lg);
+    padding: 32px 24px;
+    margin-bottom: 64px;
+  }
+
+  .lph-{{ section.id }} .lph__trust-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .lph-{{ section.id }} .lph__trust-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--lph-sage-light);
+    border-radius: 50%;
+    color: var(--lph-sage);
+  }
+
+  .lph-{{ section.id }} .lph__trust-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .lph-{{ section.id }} .lph__trust-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--lph-ink);
+    line-height: 1.35;
+  }
+
+  /* --- CATEGORIAS --- */
+  .lph-{{ section.id }} .lph__section-heading {
+    text-align: center;
+    font-size: clamp(26px, 3.5vw, 38px);
+    margin-bottom: 40px;
+  }
+
+  .lph-{{ section.id }} .lph__categories {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-bottom: 72px;
+  }
+
+  .lph-{{ section.id }} .lph__category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 32px 16px;
+    background-color: var(--lph-white);
+    border: 1px solid #E4E4E0;
+    border-radius: var(--lph-radius-lg);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .lph-{{ section.id }} .lph__category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(74, 124, 89, 0.15);
+    border-color: var(--lph-sage);
+  }
+
+  .lph-{{ section.id }} .lph__category-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--lph-sage-light);
+    border-radius: 50%;
+    color: var(--lph-sage);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .lph-{{ section.id }} .lph__category-card:hover .lph__category-icon {
+    background-color: var(--lph-sage);
+    color: var(--lph-white);
+  }
+
+  .lph-{{ section.id }} .lph__category-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .lph-{{ section.id }} .lph__category-label {
+    font-family: var(--lph-font-heading);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--lph-ink);
+  }
+
+  /* --- BANNER CÃES VS GATOS --- */
+  .lph-{{ section.id }} .lph__split-banner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 72px;
+  }
+
+  .lph-{{ section.id }} .lph__split-panel {
+    position: relative;
+    border-radius: var(--lph-radius-lg);
+    padding: 56px 40px;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+  }
+
+  .lph-{{ section.id }} .lph__split-panel--dogs {
+    background: linear-gradient(135deg, var(--lph-sage) 0%, var(--lph-sage-dark) 100%);
+  }
+
+  .lph-{{ section.id }} .lph__split-panel--cats {
+    background: linear-gradient(135deg, var(--lph-blue-dark) 0%, var(--lph-blue-darker) 100%);
+  }
+
+  .lph-{{ section.id }} .lph__split-eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 12px;
+  }
+
+  .lph-{{ section.id }} .lph__split-heading {
+    font-size: clamp(28px, 3vw, 36px);
+    color: var(--lph-white);
+    margin-bottom: 14px;
+  }
+
+  .lph-{{ section.id }} .lph__split-text {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    max-width: 380px;
+    margin-bottom: 28px;
+  }
+
+  .lph-{{ section.id }} .lph__split-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background-color: var(--lph-white);
+    color: var(--lph-ink);
+    font-family: var(--lph-font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-radius: var(--lph-radius);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .lph-{{ section.id }} .lph__split-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* --- PORQUÊ A LUX PET --- */
+  .lph-{{ section.id }} .lph__why {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .lph-{{ section.id }} .lph__why-heading {
+    font-size: clamp(26px, 3.5vw, 36px);
+    margin-bottom: 24px;
+  }
+
+  .lph-{{ section.id }} .lph__checklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .lph-{{ section.id }} .lph__checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 16px;
+    color: var(--lph-ink-soft);
+    line-height: 1.5;
+  }
+
+  .lph-{{ section.id }} .lph__check-icon {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--lph-sage);
+    color: var(--lph-white);
+    border-radius: 50%;
+  }
+
+  .lph-{{ section.id }} .lph__check-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .lph-{{ section.id }} .lph__stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .lph-{{ section.id }} .lph__stat-card {
+    background-color: var(--lph-gray);
+    border-radius: var(--lph-radius-lg);
+    padding: 28px 20px;
+    text-align: center;
+  }
+
+  .lph-{{ section.id }} .lph__stat-number {
+    font-family: var(--lph-font-heading);
+    font-size: clamp(28px, 3vw, 34px);
+    font-weight: 700;
+    color: var(--lph-sage);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .lph-{{ section.id }} .lph__stat-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--lph-ink-soft);
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 989px) {
+    .lph-{{ section.id }} .lph__categories {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .lph-{{ section.id }} .lph__why {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 749px) {
+    .lph-{{ section.id }} .lph__trust-bar {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lph-{{ section.id }} .lph__categories {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lph-{{ section.id }} .lph__split-banner {
+      grid-template-columns: 1fr;
+    }
+
+    .lph-{{ section.id }} .lph__stats {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+{%- endstyle -%}
+
+<div class="lph-{{ section.id }} lph">
+  <div class="lph__container">
+
+    <!-- Trust bar -->
+    <div class="lph__trust-bar">
+      <div class="lph__trust-item">
+        <span class="lph__trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="14" height="11"></rect><path d="M15 10h4l3 3v4h-7z"></path><circle cx="6" cy="19" r="1.8"></circle><circle cx="17.5" cy="19" r="1.8"></circle></svg>
+        </span>
+        <span class="lph__trust-text">{{ section.settings.trust_text_1 }}</span>
+      </div>
+      <div class="lph__trust-item">
+        <span class="lph__trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3.5v6c0 5-3.4 8.7-8 10.5-4.6-1.8-8-5.5-8-10.5v-6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+        </span>
+        <span class="lph__trust-text">{{ section.settings.trust_text_2 }}</span>
+      </div>
+      <div class="lph__trust-item">
+        <span class="lph__trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v4h4"></path></svg>
+        </span>
+        <span class="lph__trust-text">{{ section.settings.trust_text_3 }}</span>
+      </div>
+      <div class="lph__trust-item">
+        <span class="lph__trust-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+        </span>
+        <span class="lph__trust-text">{{ section.settings.trust_text_4 }}</span>
+      </div>
+    </div>
+
+    <!-- Categorias -->
+    <h2 class="lph__section-heading">{{ section.settings.categories_heading }}</h2>
+    <div class="lph__categories">
+      <a href="{{ section.settings.cat_1_link }}" class="lph__category-card">
+        <span class="lph__category-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"></circle><path d="M6 21c0-5 2.5-8 6-8s6 3 6 8"></path><path d="M4 21c1-2 2-9 8-9s7 7 8 9"></path></svg>
+        </span>
+        <span class="lph__category-label">{{ section.settings.cat_1_label }}</span>
+      </a>
+      <a href="{{ section.settings.cat_2_link }}" class="lph__category-card">
+        <span class="lph__category-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 9.5c1-1 2-1 2 0s-1 2-2 2"></path><path d="M16 9.5c-1-1-2-1-2 0s1 2 2 2"></path><path d="M9 15c1.5 1 4.5 1 6 0"></path></svg>
+        </span>
+        <span class="lph__category-label">{{ section.settings.cat_2_label }}</span>
+      </a>
+      <a href="{{ section.settings.cat_3_link }}" class="lph__category-card">
+        <span class="lph__category-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12v7"></path><path d="M2 15h20"></path><path d="M22 15v4"></path><path d="M4 15v-3a2 2 0 0 1 2-2h9a3 3 0 0 1 3 3v2"></path><circle cx="7" cy="9" r="1.6"></circle></svg>
+        </span>
+        <span class="lph__category-label">{{ section.settings.cat_3_label }}</span>
+      </a>
+      <a href="{{ section.settings.cat_4_link }}" class="lph__category-card">
+        <span class="lph__category-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2.5 3 4.5 6.2 4.5 9.3a4.5 4.5 0 1 1-9 0C7.5 9.2 9.5 6 12 3z"></path></svg>
+        </span>
+        <span class="lph__category-label">{{ section.settings.cat_4_label }}</span>
+      </a>
+      <a href="{{ section.settings.cat_5_link }}" class="lph__category-card">
+        <span class="lph__category-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l4 3 4-3"></path><path d="M6 7l-3 3 3 2"></path><path d="M18 7l3 3-3 2"></path><path d="M9 9v11h6V9"></path></svg>
+        </span>
+        <span class="lph__category-label">{{ section.settings.cat_5_label }}</span>
+      </a>
+    </div>
+
+    <!-- Banner Cães vs Gatos -->
+    <div class="lph__split-banner">
+      <div class="lph__split-panel lph__split-panel--dogs">
+        <span class="lph__split-eyebrow">{{ section.settings.dogs_eyebrow }}</span>
+        <h3 class="lph__split-heading">{{ section.settings.dogs_heading }}</h3>
+        <p class="lph__split-text">{{ section.settings.dogs_text }}</p>
+        <a href="{{ section.settings.dogs_button_link }}" class="lph__split-button">{{ section.settings.dogs_button_label }}</a>
+      </div>
+      <div class="lph__split-panel lph__split-panel--cats">
+        <span class="lph__split-eyebrow">{{ section.settings.cats_eyebrow }}</span>
+        <h3 class="lph__split-heading">{{ section.settings.cats_heading }}</h3>
+        <p class="lph__split-text">{{ section.settings.cats_text }}</p>
+        <a href="{{ section.settings.cats_button_link }}" class="lph__split-button">{{ section.settings.cats_button_label }}</a>
+      </div>
+    </div>
+
+    <!-- Porquê a Lux Pet -->
+    <div class="lph__why">
+      <div class="lph__why-content">
+        <h2 class="lph__why-heading">{{ section.settings.why_heading }}</h2>
+        <ul class="lph__checklist">
+          <li class="lph__checklist-item">
+            <span class="lph__check-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"></path></svg>
+            </span>
+            <span>{{ section.settings.why_item_1 }}</span>
+          </li>
+          <li class="lph__checklist-item">
+            <span class="lph__check-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"></path></svg>
+            </span>
+            <span>{{ section.settings.why_item_2 }}</span>
+          </li>
+          <li class="lph__checklist-item">
+            <span class="lph__check-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"></path></svg>
+            </span>
+            <span>{{ section.settings.why_item_3 }}</span>
+          </li>
+          <li class="lph__checklist-item">
+            <span class="lph__check-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"></path></svg>
+            </span>
+            <span>{{ section.settings.why_item_4 }}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="lph__stats">
+        <div class="lph__stat-card">
+          <span class="lph__stat-number">{{ section.settings.stat_1_number }}</span>
+          <span class="lph__stat-label">{{ section.settings.stat_1_label }}</span>
+        </div>
+        <div class="lph__stat-card">
+          <span class="lph__stat-number">{{ section.settings.stat_2_number }}</span>
+          <span class="lph__stat-label">{{ section.settings.stat_2_label }}</span>
+        </div>
+        <div class="lph__stat-card">
+          <span class="lph__stat-number">{{ section.settings.stat_3_number }}</span>
+          <span class="lph__stat-label">{{ section.settings.stat_3_label }}</span>
+        </div>
+        <div class="lph__stat-card">
+          <span class="lph__stat-number">{{ section.settings.stat_4_number }}</span>
+          <span class="lph__stat-label">{{ section.settings.stat_4_label }}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Lux Pet Homepage",
+  "tag": "section",
+  "class": "section lux-pet-homepage-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Barra de confiança"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_1",
+      "label": "Texto 1",
+      "default": "Envio grátis acima de €45"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_2",
+      "label": "Texto 2",
+      "default": "Qualidade premium garantida"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_3",
+      "label": "Texto 3",
+      "default": "Devolução grátis em 30 dias"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_4",
+      "label": "Texto 4",
+      "default": "Pagamento 100% seguro"
+    },
+    {
+      "type": "header",
+      "content": "Categorias"
+    },
+    {
+      "type": "text",
+      "id": "categories_heading",
+      "label": "Título da secção",
+      "default": "Compre por categoria"
+    },
+    {
+      "type": "text",
+      "id": "cat_1_label",
+      "label": "Categoria 1 - nome",
+      "default": "Passeio"
+    },
+    {
+      "type": "url",
+      "id": "cat_1_link",
+      "label": "Categoria 1 - link",
+      "default": "/collections/acessorios-para-passeio"
+    },
+    {
+      "type": "text",
+      "id": "cat_2_label",
+      "label": "Categoria 2 - nome",
+      "default": "Brinquedos"
+    },
+    {
+      "type": "url",
+      "id": "cat_2_link",
+      "label": "Categoria 2 - link",
+      "default": "/collections/brinquedos-e-enriquecimento"
+    },
+    {
+      "type": "text",
+      "id": "cat_3_label",
+      "label": "Categoria 3 - nome",
+      "default": "Conforto"
+    },
+    {
+      "type": "url",
+      "id": "cat_3_link",
+      "label": "Categoria 3 - link",
+      "default": "/collections/conforto-e-descanso"
+    },
+    {
+      "type": "text",
+      "id": "cat_4_label",
+      "label": "Categoria 4 - nome",
+      "default": "Higiene"
+    },
+    {
+      "type": "url",
+      "id": "cat_4_link",
+      "label": "Categoria 4 - link",
+      "default": "/collections/higiene-e-cuidados"
+    },
+    {
+      "type": "text",
+      "id": "cat_5_label",
+      "label": "Categoria 5 - nome",
+      "default": "Moda"
+    },
+    {
+      "type": "url",
+      "id": "cat_5_link",
+      "label": "Categoria 5 - link",
+      "default": "/collections/moda-e-acessorios"
+    },
+    {
+      "type": "header",
+      "content": "Banner Cães vs Gatos"
+    },
+    {
+      "type": "text",
+      "id": "dogs_eyebrow",
+      "label": "Cães - texto pequeno",
+      "default": "Para os melhores amigos"
+    },
+    {
+      "type": "text",
+      "id": "dogs_heading",
+      "label": "Cães - título",
+      "default": "Tudo para o seu cão"
+    },
+    {
+      "type": "textarea",
+      "id": "dogs_text",
+      "label": "Cães - descrição",
+      "default": "Ração, brinquedos, acessórios de passeio e muito mais para o companheiro mais fiel da família."
+    },
+    {
+      "type": "text",
+      "id": "dogs_button_label",
+      "label": "Cães - texto do botão",
+      "default": "Ver coleção para cães"
+    },
+    {
+      "type": "url",
+      "id": "dogs_button_link",
+      "label": "Cães - link do botão",
+      "default": "/collections/caes"
+    },
+    {
+      "type": "text",
+      "id": "cats_eyebrow",
+      "label": "Gatos - texto pequeno",
+      "default": "Para os mais independentes"
+    },
+    {
+      "type": "text",
+      "id": "cats_heading",
+      "label": "Gatos - título",
+      "default": "Tudo para o seu gato"
+    },
+    {
+      "type": "textarea",
+      "id": "cats_text",
+      "label": "Gatos - descrição",
+      "default": "Arranhadores, brinquedos, areias e conforto pensado para o bem-estar do seu felino."
+    },
+    {
+      "type": "text",
+      "id": "cats_button_label",
+      "label": "Gatos - texto do botão",
+      "default": "Ver coleção para gatos"
+    },
+    {
+      "type": "url",
+      "id": "cats_button_link",
+      "label": "Gatos - link do botão",
+      "default": "/collections/gatos"
+    },
+    {
+      "type": "header",
+      "content": "Porquê a Lux Pet"
+    },
+    {
+      "type": "text",
+      "id": "why_heading",
+      "label": "Título",
+      "default": "Porquê escolher a Lux Pet"
+    },
+    {
+      "type": "text",
+      "id": "why_item_1",
+      "label": "Item 1",
+      "default": "Produtos selecionados por especialistas em bem-estar animal"
+    },
+    {
+      "type": "text",
+      "id": "why_item_2",
+      "label": "Item 2",
+      "default": "Entrega rápida em 24 a 48 horas para Portugal e Espanha"
+    },
+    {
+      "type": "text",
+      "id": "why_item_3",
+      "label": "Item 3",
+      "default": "Apoio ao cliente dedicado, sete dias por semana"
+    },
+    {
+      "type": "text",
+      "id": "why_item_4",
+      "label": "Item 4",
+      "default": "Compromisso com marcas sustentáveis e responsáveis"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_number",
+      "label": "Estatística 1 - número",
+      "default": "10 mil+"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "label": "Estatística 1 - texto",
+      "default": "Clientes satisfeitos"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_number",
+      "label": "Estatística 2 - número",
+      "default": "500+"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "label": "Estatística 2 - texto",
+      "default": "Produtos premium"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_number",
+      "label": "Estatística 3 - número",
+      "default": "24-48h"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_label",
+      "label": "Estatística 3 - texto",
+      "default": "Entrega rápida"
+    },
+    {
+      "type": "text",
+      "id": "stat_4_number",
+      "label": "Estatística 4 - número",
+      "default": "4.8/5"
+    },
+    {
+      "type": "text",
+      "id": "stat_4_label",
+      "label": "Estatística 4 - texto",
+      "default": "Avaliação média"
+    },
+    {
+      "type": "header",
+      "content": "Espaçamento"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaçamento superior",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaçamento inferior",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lux Pet Homepage"
+    }
+  ]
+}
+{% endschema %}

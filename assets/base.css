@@ -4048,3 +4048,57 @@ textarea:focus {
     font-size: clamp(22px, 6vw, 30px) !important;
   }
 }
+
+/* =============================================
+   LUX PET v3 — Homepage Premium
+   Reforço de paleta, botões, cards e acentos verdes
+   ============================================= */
+
+/* --- BOTÕES: raio consistente em toda a loja --- */
+.button,
+.shopify-payment-button__button,
+.newsletter-form__button,
+.quick-add__submit {
+  border-radius: var(--lp-radius, 8px) !important;
+}
+
+/* --- CARDS: hover consistente em coleções e produtos --- */
+.card-wrapper:hover .card,
+.collection-card:hover,
+.product-card-wrapper:hover .card {
+  box-shadow: 0 8px 32px rgba(74, 124, 89, 0.14) !important;
+  transform: translateY(-3px);
+}
+
+/* --- ANNOUNCEMENT BAR: acento verde sage --- */
+.utility-bar {
+  background-color: var(--lp-sage, #4A7C59) !important;
+}
+
+.utility-bar .announcement-bar__link:hover {
+  color: var(--lp-white, #FFFFFF) !important;
+  opacity: 0.85;
+}
+
+/* --- CART BUBBLE: verde sage --- */
+.cart-count-bubble,
+.header__icon .cart-count-bubble {
+  background-color: var(--lp-sage, #4A7C59) !important;
+  border-color: var(--lp-sage, #4A7C59) !important;
+  color: var(--lp-white, #FFFFFF) !important;
+}
+
+/* --- ESTRELAS DE AVALIAÇÃO: verde sage --- */
+.rating-star,
+.rating__icon--full svg,
+.rating__icon--half svg {
+  color: var(--lp-sage, #4A7C59) !important;
+  fill: var(--lp-sage, #4A7C59) !important;
+}
+
+/* --- FOCO ACESSÍVEL --- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--lp-sage, #4A7C59) !important;
+  outline-offset: 2px;
+}
