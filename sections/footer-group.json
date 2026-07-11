@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.footer.name",
   "type": "footer",
@@ -5,14 +14,52 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "brand": { "type": "brand_information", "settings": { "heading": "", "subtext": "<p>Produtos premium para cães e gatos. Entrega rápida em Portugal e Espanha.</p>", "show_social": true } },
-        "links_loja": { "type": "link_list", "settings": { "heading": "Loja", "menu": "main-menu" } },
-        "links_ajuda": { "type": "link_list", "settings": { "heading": "Ajuda", "menu": "footer" } },
-        "contact": { "type": "text", "settings": { "heading": "Contacto", "subtext": "<p>📧 suporte@luxpet.pt</p><p>Respondemos em menos de 24h, de segunda a sexta.</p>" } }
+        "brand": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": true
+          }
+        },
+        "links_loja": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Loja",
+            "menu": "main-menu"
+          }
+        },
+        "links_ajuda": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Ajuda",
+            "menu": "footer"
+          }
+        },
+        "contact": {
+          "type": "text",
+          "settings": {
+            "heading": "Contacto",
+            "subtext": "<p>📧 suporte@luxpet.pt</p><p>Respondemos em menos de 24h, de segunda a sexta.</p>"
+          }
+        }
       },
-      "block_order": ["brand", "links_loja", "links_ajuda", "contact"],
-      "settings": { "color_scheme": "scheme-5", "newsletter_enable": false, "show_social": true, "payment_enable": true, "show_policy": true, "padding_top": 72, "padding_bottom": 40 }
+      "block_order": [
+        "brand",
+        "links_loja",
+        "links_ajuda",
+        "contact"
+      ],
+      "settings": {
+        "color_scheme": "scheme-5",
+        "newsletter_enable": false,
+        "show_social": true,
+        "payment_enable": true,
+        "show_policy": true,
+        "padding_top": 72,
+        "padding_bottom": 40
+      }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }
