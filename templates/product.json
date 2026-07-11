@@ -46,6 +46,10 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "judge_me_reviews_preview_badge_kEhCri": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -65,6 +69,7 @@
         "variant_picker",
         "inventory_HG4M6J",
         "quantity_selector",
+        "judge_me_reviews_preview_badge_kEhCri",
         "buy_buttons",
         "description"
       ],
