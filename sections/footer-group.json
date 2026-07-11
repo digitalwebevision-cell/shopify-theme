@@ -1,1 +1,18 @@
-{"name":"t:sections.footer.name","type":"footer","sections":{"footer":{"type":"footer","blocks":{"brand_lux_pet":{"type":"brand_information","settings":{"show_social":true}},"links_loja":{"type":"link_list","settings":{"heading":"A Loja","menu":"main-menu"}},"links_ajuda":{"type":"link_list","settings":{"heading":"Ajuda","menu":"footer"}},"contacto":{"type":"text","settings":{"heading":"Contacto","subtext":"<p>Suporte ao cliente:<\/p><p>suporte@luxpet.pt<\/p>"}}},"block_order":["brand_lux_pet","links_loja","links_ajuda","contacto"],"settings":{"color_scheme":"scheme-5","newsletter_enable":true,"newsletter_heading":"Subscreva a nossa newsletter","enable_follow_on_shop":false,"show_social":true,"enable_country_selector":true,"enable_language_selector":true,"payment_enable":true,"show_policy":true,"margin_top":0,"padding_top":100,"padding_bottom":100}}},"order":["footer"]}
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "brand": { "type": "brand_information", "settings": { "heading": "", "subtext": "<p>Produtos premium para cães e gatos. Entrega rápida em Portugal e Espanha.</p>", "show_social": true } },
+        "links_loja": { "type": "link_list", "settings": { "heading": "Loja", "menu": "main-menu" } },
+        "links_ajuda": { "type": "link_list", "settings": { "heading": "Ajuda", "menu": "footer" } },
+        "contact": { "type": "text", "settings": { "heading": "Contacto", "subtext": "<p>📧 suporte@luxpet.pt</p><p>Respondemos em menos de 24h, de segunda a sexta.</p>" } }
+      },
+      "block_order": ["brand", "links_loja", "links_ajuda", "contact"],
+      "settings": { "color_scheme": "scheme-5", "newsletter_enable": false, "show_social": true, "payment_enable": true, "show_policy": true, "padding_top": 72, "padding_bottom": 40 }
+    }
+  },
+  "order": ["footer"]
+}
