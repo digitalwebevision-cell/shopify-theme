@@ -3,35 +3,6 @@
 .lp-product-trust-item svg{flex-shrink:0;color:#4A7C59}
 .lp-product-trust-item span{font-size:12px;color:#1A1A1A;font-weight:500;line-height:1.3}
 
-.lp-btn-split{display:flex;border-radius:10px;overflow:hidden;border:2.5px solid #4A7C59;margin-bottom:10px}
-.lp-btn-split-price{background:#EAF1EC;color:#27613e;padding:14px 20px;font-size:17px;font-weight:700;display:flex;align-items:center;white-space:nowrap;flex-shrink:0}
-.lp-btn-split-action{flex:1;background:#4A7C59;color:#fff;border:none;padding:14px 18px;font-size:13px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
-.lp-btn-split-action:hover{background:#3A6147}
-.lp-btn-split-action svg{width:18px;height:18px}
-
-.lp-btn-wishlist{width:100%;background:#fff;color:#1A1A1A;border:1.5px solid #E4E4E0;padding:12px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:border-color 0.2s}
-.lp-btn-wishlist:hover{border-color:#4A7C59;color:#4A7C59}
-.lp-btn-wishlist svg{width:16px;height:16px;color:#4A7C59}
-
-.lp-price-split{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.lp-price-main{font-size:28px;font-weight:700;color:#1A1A1A}
-.lp-price-old{font-size:16px;color:#B4B2A9;text-decoration:line-through}
-.lp-price-badge{background:#EAF1EC;color:#27613e;font-size:12px;font-weight:700;padding:3px 8px;border-radius:5px}
-.lp-price-save{font-size:12px;color:#27613e;font-weight:600;margin-bottom:16px}
-
-.lp-tabs{display:flex;border-bottom:1px solid #E4E4E0;margin-bottom:0}
-.lp-tab{padding:14px 20px;font-size:13px;font-weight:600;color:#9E9E9E;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
-.lp-tab.active{color:#4A7C59;border-bottom-color:#4A7C59}
-
-.lp-review{padding:18px 0;border-bottom:1px solid #E4E4E0}
-.lp-review:last-child{border-bottom:none}
-.lp-review-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.lp-review-name{font-size:13px;font-weight:700;color:#1A1A1A}
-.lp-review-stars{color:#4A7C59;font-size:12px}
-.lp-review-date{font-size:11px;color:#9E9E9E}
-.lp-review-text{font-size:13px;color:#6B6B6B;line-height:1.65}
-.lp-review-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#27613e;background:#EAF1EC;padding:3px 8px;border-radius:4px;margin-top:6px;font-weight:600}
-
-.lp-related-card .lp-btn-split{border-width:1.5px}
-.lp-related-card .lp-btn-split-price{padding:8px 12px;font-size:13px}
-.lp-related-card .lp-btn-split-action{padding:8px 10px;font-size:11px}
+@media (max-width: 480px){
+  .lp-product-trust{grid-template-columns:1fr}
+}
