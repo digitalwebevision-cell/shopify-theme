@@ -292,10 +292,21 @@
           </div>
           <div class="lp-card-btn-split">
             <div class="lp-card-price-side">{{ card_product.price | money }}</div>
-            <button type="button" class="lp-card-add-side" data-product-id="{{ card_product.id }}">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-              Adicionar
-            </button>
+            {%- if card_product.variants_count == 1 and card_product.selected_or_first_available_variant.available -%}
+              <button
+                type="button"
+                class="lp-card-add-side"
+                data-variant-id="{{ card_product.selected_or_first_available_variant.id }}"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                Adicionar
+              </button>
+            {%- else -%}
+              <a href="{{ card_product.url }}" class="lp-card-add-side">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                {%- if card_product.available -%}Escolher opções{%- else -%}Esgotado{%- endif -%}
+              </a>
+            {%- endif -%}
           </div>
           <div class="card__badge {{ settings.badge_position }}">
             {%- if card_product.available == false -%}

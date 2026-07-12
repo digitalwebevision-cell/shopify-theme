@@ -4118,15 +4118,11 @@ body,p,span,a,li,button,input{font-family:'Inter',-apple-system,sans-serif}
 .button:not(.button--secondary):not(.button--tertiary){background-color:var(--lp-sage)!important;border-color:var(--lp-sage)!important;color:#fff!important;border-radius:var(--lp-r)!important;font-size:13px!important;font-weight:700!important;letter-spacing:0.05em!important;text-transform:uppercase!important;transition:background-color var(--lp-t),transform var(--lp-t)!important}
 .button:not(.button--secondary):not(.button--tertiary):hover{background-color:var(--lp-sage-dark)!important;border-color:var(--lp-sage-dark)!important;transform:translateY(-1px)}
 
-.product-form__submit{display:none!important}
-
 .card-wrapper .card{border-radius:var(--lp-rl)!important;overflow:hidden;transition:box-shadow var(--lp-t),transform var(--lp-t)!important}
-.card-wrapper:hover .card{box-shadow:0 6px 28px rgba(0,0,0,0.08)!important;transform:translateY(-3px)}
 .card__heading a:hover{color:var(--lp-sage)!important}
 .media img{transition:transform 0.45s ease!important}
 .card-wrapper:hover .media img{transform:scale(1.04)}
 .price--on-sale .price-item--sale{color:var(--lp-sage)!important}
-.cart-count-bubble{background-color:var(--lp-sage)!important;color:#fff!important}
 .rating__icon{fill:var(--lp-sage)!important}
 .badge--sale{background-color:var(--lp-sage)!important;color:#fff!important}
 .field__input:focus,.select__select:focus{border-color:var(--lp-sage)!important;box-shadow:0 0 0 3px rgba(74,124,89,0.14)!important;outline:none!important}
@@ -4137,5 +4133,71 @@ body,p,span,a,li,button,input{font-family:'Inter',-apple-system,sans-serif}
 .lp-card-add-side{flex:1;background:var(--lp-sage);color:#fff;border:none;padding:9px 10px;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:background var(--lp-t)}
 .lp-card-add-side:hover{background:var(--lp-sage-dark)}
 .lp-card-add-side svg{flex-shrink:0}
+.lp-card-add-side.loading{opacity:0.6;pointer-events:none}
 
 html{scroll-behavior:smooth}
+
+/* =============================================
+   LUX PET — Refinamento global (auditoria)
+   Transições, tipografia, espaçamento e acessibilidade
+   ============================================= */
+
+/* --- Transições suaves em elementos interactivos --- */
+a,
+button,
+.button,
+input,
+select,
+textarea,
+.card-wrapper,
+.card,
+[role="button"] {
+  transition: background-color var(--lp-t, 0.22s ease), border-color var(--lp-t, 0.22s ease),
+    color var(--lp-t, 0.22s ease), box-shadow var(--lp-t, 0.22s ease), transform var(--lp-t, 0.22s ease),
+    opacity var(--lp-t, 0.22s ease);
+}
+
+/* --- Tipografia refinada --- */
+body {
+  line-height: 1.6;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  line-height: 1.2;
+}
+p {
+  line-height: 1.65;
+  letter-spacing: 0;
+}
+.button, button {
+  letter-spacing: 0.03em;
+}
+
+/* --- Espaçamento consistente entre secções Lux Pet --- */
+.lpb {
+  border-top: 1px solid rgba(26, 26, 26, 0.06);
+}
+
+/* --- Focus states acessíveis em inputs, selects, textareas e botões --- */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+.field__input:focus-visible,
+.select__select:focus-visible,
+button:focus-visible,
+.button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--lp-sage, #4A7C59);
+  outline-offset: 2px;
+}
+
+/* --- Respeita utilizadores com preferência por menos movimento --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

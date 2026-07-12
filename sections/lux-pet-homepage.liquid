@@ -1,7 +1,7 @@
 {% comment %}LUX PET — Homepage Custom Section{% endcomment %}
 
 <!-- TRUST BAR -->
-<div class="lp-trust-bar">
+<div class="lp-trust-bar{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
   <div class="lp-container">
     <div class="lp-trust-grid">
       <div class="lp-trust-item">
@@ -25,7 +25,7 @@
 </div>
 
 <!-- CATEGORIAS -->
-<div class="lp-cats">
+<div class="lp-cats{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
   <div class="lp-container">
     <div class="lp-sec-head">
       <h2 class="lp-sec-title">Comprar por categoria</h2>
@@ -62,9 +62,9 @@
 </div>
 
 <!-- SPLIT CÃO vs GATO -->
-<div class="lp-split">
+<div class="lp-split{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
   <div class="lp-container lp-split-inner">
-    <a href="/collections/caes" class="lp-split-card lp-split-dog">
+    <a href="/collections/all" class="lp-split-card lp-split-dog">
       <div class="lp-split-deco">
         <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><ellipse cx="36" cy="44" rx="20" ry="14" stroke="white" stroke-width="2.5"/><circle cx="26" cy="28" r="8" stroke="white" stroke-width="2.5"/><circle cx="46" cy="28" r="8" stroke="white" stroke-width="2.5"/><path d="M18 24c-3-5-8-6-11-4" stroke="white" stroke-width="2.5" stroke-linecap="round"/><path d="M54 24c3-5 8-6 11-4" stroke="white" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="27" cy="28" rx="3" ry="3.5" fill="white"/><ellipse cx="45" cy="28" rx="3" ry="3.5" fill="white"/><path d="M30 36c0 0 3 3 6 3s6-3 6-3" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
       </div>
@@ -74,7 +74,7 @@
         <span class="lp-split-btn">Ver produtos para cão →</span>
       </div>
     </a>
-    <a href="/collections/gatos" class="lp-split-card lp-split-cat">
+    <a href="/collections/all" class="lp-split-card lp-split-cat">
       <div class="lp-split-deco">
         <svg width="72" height="72" viewBox="0 0 72 72" fill="none"><path d="M18 16L12 28h10c0 6 6 12 14 12s14-6 14-12h10L54 16l-8 8c-3-3-7-5-10-5s-7 2-10 5L18 16z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/><ellipse cx="30" cy="30" rx="3" ry="3.5" fill="white"/><ellipse cx="42" cy="30" rx="3" ry="3.5" fill="white"/><path d="M31 36c0 0 2.5 3 5 3s5-3 5-3" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M36 40v8M30 48h12" stroke="white" stroke-width="2.5" stroke-linecap="round"/></svg>
       </div>
@@ -88,7 +88,7 @@
 </div>
 
 <!-- PORQUÊ LUX PET -->
-<div class="lp-why">
+<div class="lp-why{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
   <div class="lp-container">
     <div class="lp-why-grid">
       <div class="lp-why-text">
@@ -113,7 +113,7 @@
   </div>
 </div>
 
-<style>
+{% style %}
 .lp-container{max-width:1200px;margin:0 auto;padding:0 24px}
 
 .lp-trust-bar{background:#fff;border-top:1px solid #E4E4E0;border-bottom:1px solid #E4E4E0;padding:4px 0}
@@ -171,7 +171,7 @@
   .lp-why-grid{grid-template-columns:1fr;gap:40px}
   .lp-why-stats{grid-template-columns:1fr 1fr}
 }
-</style>
+{% endstyle %}
 
 {% schema %}
 {

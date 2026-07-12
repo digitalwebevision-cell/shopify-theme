@@ -1,0 +1,266 @@
+{% comment %}
+  LUX PET — Banners promocionais (envio grátis / promoção sazonal / newsletter)
+  Controlado por section.settings.banner_type
+{% endcomment %}
+
+{%- liquid
+  assign heading = section.settings.heading
+  assign subheading = section.settings.subheading
+  assign button_label = section.settings.button_label
+  assign button_link = section.settings.button_link
+-%}
+
+<div class="lpb lpb--{{ section.settings.banner_type }} color-{{ section.settings.color_scheme }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+  <div class="lpb-container">
+    {%- case section.settings.banner_type -%}
+
+      {%- when 'shipping' -%}
+        <div class="lpb-shipping">
+          <div class="lpb-shipping-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4A7C59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13" rx="2"/>
+              <path d="M16 8h4l3 4v3h-7V8z"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/>
+              <circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+          </div>
+          <div class="lpb-shipping-text">
+            <h2 class="lpb-shipping-title">{{ heading | default: 'Envio Gratuito' }}</h2>
+            <p class="lpb-shipping-subtitle">{{ subheading | default: 'Em todas as compras acima de €45 para Portugal e Espanha' }}</p>
+          </div>
+          {%- if button_label != blank -%}
+            <a href="{{ button_link | default: '/collections/all' }}" class="lpb-shipping-btn">{{ button_label }}</a>
+          {%- endif -%}
+        </div>
+
+      {%- when 'promo' -%}
+        <div class="lpb-promo">
+          <div class="lpb-promo-content">
+            {%- if section.settings.badge_text != blank -%}
+              <span class="lpb-promo-badge">{{ section.settings.badge_text }}</span>
+            {%- endif -%}
+            <h2 class="lpb-promo-title">{{ heading | default: 'Até 30% de desconto' }}</h2>
+            <p class="lpb-promo-subtitle">{{ subheading | default: 'Nos melhores produtos para o teu animal' }}</p>
+            {%- if button_label != blank -%}
+              <a href="{{ button_link | default: '/collections/all' }}" class="lpb-promo-btn">{{ button_label }}</a>
+            {%- endif -%}
+          </div>
+          <div class="lpb-promo-counter" aria-hidden="true">
+            <div class="lpb-promo-counter-item">
+              <span class="lpb-promo-counter-num">12</span>
+              <span class="lpb-promo-counter-lbl">Dias</span>
+            </div>
+            <div class="lpb-promo-counter-item">
+              <span class="lpb-promo-counter-num">08</span>
+              <span class="lpb-promo-counter-lbl">Horas</span>
+            </div>
+            <div class="lpb-promo-counter-item">
+              <span class="lpb-promo-counter-num">45</span>
+              <span class="lpb-promo-counter-lbl">Min</span>
+            </div>
+          </div>
+        </div>
+
+      {%- when 'newsletter' -%}
+        <div class="lpb-news">
+          <div class="lpb-news-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4A7C59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M2 6l10 7 10-7"/>
+            </svg>
+          </div>
+          <div class="lpb-news-text">
+            <h2 class="lpb-news-title">{{ heading | default: '10% de desconto na primeira compra' }}</h2>
+            <p class="lpb-news-subtitle">{{ subheading | default: 'Subscreve e recebe ofertas exclusivas directamente no teu email' }}</p>
+          </div>
+          <div class="lpb-news-form-wrap">
+            {%- form 'customer', class: 'lpb-news-form' -%}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div class="lpb-news-field">
+                <label class="visually-hidden" for="LuxPetNewsletter-{{ section.id }}">{{ 'newsletter.label' | t }}</label>
+                <input
+                  id="LuxPetNewsletter-{{ section.id }}"
+                  type="email"
+                  name="contact[email]"
+                  class="lpb-news-input"
+                  value="{{ form.email }}"
+                  aria-required="true"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  autocomplete="email"
+                  placeholder="O teu email"
+                  required
+                >
+                <button type="submit" class="lpb-news-submit">Subscrever</button>
+              </div>
+              {%- if form.errors -%}
+                <small class="lpb-news-message lpb-news-message--error">
+                  {{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}
+                </small>
+              {%- endif -%}
+              {%- if form.posted_successfully? -%}
+                <small class="lpb-news-message lpb-news-message--success">{{ 'newsletter.success' | t }}</small>
+              {%- endif -%}
+            {%- endform -%}
+            <p class="lpb-news-disclaimer">{{ section.settings.newsletter_disclaimer | default: 'Sem spam. Cancela quando quiseres.' }}</p>
+          </div>
+        </div>
+
+    {%- endcase -%}
+  </div>
+</div>
+
+{% style %}
+.lpb-container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ---------- BANNER 1: ENVIO GRÁTIS ---------- */
+.lpb--shipping{background:linear-gradient(120deg,#4A7C59,#3A6147);padding:36px 0}
+.lpb-shipping{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.lpb-shipping-icon{width:64px;height:64px;background:rgba(255,255,255,0.16);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lpb-shipping-icon svg{stroke:#fff}
+.lpb-shipping-text{flex:1;min-width:220px}
+.lpb-shipping-title{font-size:24px;font-weight:700;color:#fff;font-family:var(--font-heading-family, 'Playfair Display', Georgia, serif);letter-spacing:-0.01em;margin:0 0 6px}
+.lpb-shipping-subtitle{font-size:14px;color:rgba(255,255,255,0.85);margin:0;line-height:1.5}
+.lpb-shipping-btn{flex-shrink:0;display:inline-block;background:#fff;color:#3A6147;padding:13px 28px;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;transition:transform 0.2s ease,box-shadow 0.2s ease}
+.lpb-shipping-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.18)}
+
+/* ---------- BANNER 2: PROMOÇÃO SAZONAL ---------- */
+.lpb--promo{background:#1A1A1A;padding:56px 0}
+.lpb-promo{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.lpb-promo-content{flex:1;min-width:260px}
+.lpb-promo-badge{display:inline-block;background:#4A7C59;color:#fff;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:16px}
+.lpb-promo-title{font-size:36px;font-weight:700;color:#fff;font-family:var(--font-heading-family, 'Playfair Display', Georgia, serif);letter-spacing:-0.02em;margin:0 0 10px;line-height:1.15}
+.lpb-promo-subtitle{font-size:15px;color:rgba(255,255,255,0.7);margin:0 0 24px}
+.lpb-promo-btn{display:inline-block;background:#4A7C59;color:#fff;padding:14px 30px;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;transition:background 0.2s ease,transform 0.2s ease}
+.lpb-promo-btn:hover{background:#3A6147;transform:translateY(-2px)}
+.lpb-promo-counter{display:flex;gap:12px;flex-shrink:0}
+.lpb-promo-counter-item{background:rgba(255,255,255,0.06);border:1px solid rgba(74,124,89,0.4);border-radius:12px;padding:16px 20px;text-align:center;min-width:76px}
+.lpb-promo-counter-num{display:block;font-size:28px;font-weight:700;color:#4A7C59;font-family:var(--font-heading-family, 'Playfair Display', Georgia, serif)}
+.lpb-promo-counter-lbl{font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.05em}
+
+/* ---------- BANNER 3: NEWSLETTER ---------- */
+.lpb--newsletter{background:#EAF1EC;padding:56px 0}
+.lpb-news{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.lpb-news-icon{width:64px;height:64px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid rgba(74,124,89,0.18)}
+.lpb-news-text{flex:1;min-width:240px}
+.lpb-news-title{font-size:24px;font-weight:700;color:#1A1A1A;font-family:var(--font-heading-family, 'Playfair Display', Georgia, serif);letter-spacing:-0.01em;margin:0 0 6px}
+.lpb-news-subtitle{font-size:14px;color:#6B6B6B;margin:0;line-height:1.5}
+.lpb-news-form-wrap{flex-shrink:0;min-width:320px}
+.lpb-news-field{display:flex;border-radius:8px;overflow:hidden;border:1px solid #d4e0d8;background:#fff}
+.lpb-news-input{flex:1;border:none;padding:13px 16px;font-size:14px;color:#1A1A1A;background:transparent;min-width:0}
+.lpb-news-input:focus{outline:none}
+.lpb-news-submit{flex-shrink:0;background:#4A7C59;color:#fff;border:none;padding:13px 22px;font-size:13px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;transition:background 0.2s ease}
+.lpb-news-submit:hover{background:#3A6147}
+.lpb-news-disclaimer{font-size:11px;color:#8a8a82;margin:8px 0 0;text-align:center}
+.lpb-news-message{display:block;margin-top:6px;font-size:12px}
+.lpb-news-message--error{color:#c0392b}
+.lpb-news-message--success{color:#3A6147}
+
+/* focus visibility */
+.lpb-shipping-btn:focus-visible,
+.lpb-promo-btn:focus-visible,
+.lpb-news-submit:focus-visible,
+.lpb-news-input:focus-visible{outline:2px solid #4A7C59;outline-offset:2px}
+
+@media (max-width: 749px){
+  .lpb-shipping,.lpb-news{flex-direction:column;text-align:center}
+  .lpb-shipping-btn{width:100%;text-align:center}
+  .lpb-promo{flex-direction:column;align-items:stretch;text-align:center}
+  .lpb-promo-counter{justify-content:center}
+  .lpb-promo-title{font-size:28px}
+  .lpb-news-form-wrap{width:100%;min-width:0}
+  .lpb-news-field{width:100%}
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Lux Pet Banners",
+  "tag": "section",
+  "class": "lux-pet-banners-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "banner_type",
+      "label": "Tipo de banner",
+      "options": [
+        { "value": "shipping", "label": "Envio grátis" },
+        { "value": "promo", "label": "Promoção sazonal" },
+        { "value": "newsletter", "label": "Newsletter" }
+      ],
+      "default": "shipping"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de cores do fundo da secção",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Título"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subtítulo"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Texto do badge",
+      "info": "Usado apenas no banner de promoção sazonal"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texto do botão",
+      "info": "Usado nos banners de envio grátis e promoção"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link do botão"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_disclaimer",
+      "label": "Texto pequeno",
+      "info": "Usado apenas no banner de newsletter"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lux Pet — Banner Envio Grátis",
+      "settings": {
+        "banner_type": "shipping",
+        "heading": "Envio Gratuito",
+        "subheading": "Em todas as compras acima de €45 para Portugal e Espanha",
+        "button_label": "Ver produtos",
+        "button_link": "/collections/all"
+      }
+    },
+    {
+      "name": "Lux Pet — Banner Promoção",
+      "settings": {
+        "banner_type": "promo",
+        "heading": "Até 30% de desconto",
+        "subheading": "Nos melhores produtos para o teu animal",
+        "badge_text": "OFERTA LIMITADA",
+        "button_label": "Ver promoções",
+        "button_link": "/collections/all"
+      }
+    },
+    {
+      "name": "Lux Pet — Banner Newsletter",
+      "settings": {
+        "banner_type": "newsletter",
+        "heading": "10% de desconto na primeira compra",
+        "subheading": "Subscreve e recebe ofertas exclusivas directamente no teu email",
+        "newsletter_disclaimer": "Sem spam. Cancela quando quiseres."
+      }
+    }
+  ]
+}
+{% endschema %}
