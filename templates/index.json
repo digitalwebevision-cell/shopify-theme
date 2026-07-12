@@ -9,43 +9,6 @@
  */
 {
   "sections": {
-    "lpb_shipping": {
-      "type": "lux-pet-banners",
-      "settings": {
-        "banner_type": "shipping",
-        "color_scheme": "scheme-1",
-        "heading": "Envio Gratuito",
-        "subheading": "Em todas as compras acima de €45 para Portugal e Espanha",
-        "button_label": "Ver produtos",
-        "button_link": "/collections/all"
-      }
-    },
-    "lux_pet_homepage": {
-      "type": "lux-pet-homepage",
-      "settings": {}
-    },
-    "lpb_promo": {
-      "type": "lux-pet-banners",
-      "settings": {
-        "banner_type": "promo",
-        "color_scheme": "scheme-1",
-        "heading": "Até 30% de desconto",
-        "subheading": "Nos melhores produtos para o teu animal",
-        "badge_text": "OFERTA LIMITADA",
-        "button_label": "Ver promoções",
-        "button_link": "/collections/all"
-      }
-    },
-    "lpb_newsletter": {
-      "type": "lux-pet-banners",
-      "settings": {
-        "banner_type": "newsletter",
-        "color_scheme": "scheme-1",
-        "heading": "10% de desconto na primeira compra",
-        "subheading": "Subscreve e recebe ofertas exclusivas directamente no teu email",
-        "newsletter_disclaimer": "Sem spam. Cancela quando quiseres."
-      }
-    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -85,6 +48,23 @@
         "show_text_below": false
       }
     },
+    "lpb_shipping": {
+      "type": "lux-pet-banners",
+      "settings": {
+        "banner_type": "shipping",
+        "color_scheme": "scheme-1",
+        "heading": "Envio Gratuito",
+        "subheading": "Em todas as compras acima de €45 para Portugal e Espanha",
+        "badge_text": "",
+        "button_label": "Ver produtos",
+        "button_link": "/collections/all",
+        "newsletter_disclaimer": ""
+      }
+    },
+    "lux_pet_homepage": {
+      "type": "lux-pet-homepage",
+      "settings": {}
+    },
     "featured_collection": {
       "type": "featured-collection",
       "custom_css": [],
@@ -112,6 +92,19 @@
         "swipe_on_mobile": false,
         "padding_top": 44,
         "padding_bottom": 36
+      }
+    },
+    "lpb_promo": {
+      "type": "lux-pet-banners",
+      "settings": {
+        "banner_type": "promo",
+        "color_scheme": "scheme-1",
+        "heading": "Até 30% de desconto",
+        "subheading": "Nos melhores produtos para o teu animal",
+        "badge_text": "OFERTA LIMITADA",
+        "button_label": "Ver promoções",
+        "button_link": "/collections/all",
+        "newsletter_disclaimer": ""
       }
     },
     "collection_list_tFCay3": {
@@ -211,6 +204,19 @@
         "full_width": true,
         "padding_top": 100,
         "padding_bottom": 100
+      }
+    },
+    "lpb_newsletter": {
+      "type": "lux-pet-banners",
+      "settings": {
+        "banner_type": "newsletter",
+        "color_scheme": "scheme-1",
+        "heading": "10% de desconto na primeira compra",
+        "subheading": "Subscreve e recebe ofertas exclusivas directamente no teu email",
+        "badge_text": "",
+        "button_label": "",
+        "button_link": "",
+        "newsletter_disclaimer": "Sem spam. Cancela quando quiseres."
       }
     }
   },
